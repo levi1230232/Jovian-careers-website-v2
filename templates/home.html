@@ -10,19 +10,27 @@
     #banner{
         height:360px;
         width: 100%;
-        object-fit: cover
+        object-fit: cover;
+        margin-bottom: 16px
     }
 </style>
 <body>
+    {% include 'nav.html' %}
+    <img class="img-fluid" id="banner" src="./static/assets/img/clark-tibbs-oqStl2L5oxI-unsplash.jpg" height="320">
     <div class="container">
         <h1 class="text-center mt-2 mb-4">Jovian Careers</h1>
-        <img class="img-fluid" id="banner" src="./static/assets/img/clark-tibbs-oqStl2L5oxI-unsplash.jpg" height="320">
-        <h2 class="text-center mt-2 mb-4" >About Jovian</h2>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <div class="row mb-4" >
+            <div class="col-md-6">
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>  
+            <div class="d-none d-md-block col-md-6">
+                <img src="./static/assets/img/people_working.jpg" style="height: 320px; border-radius: 4px" >
+            </div>
+        </div>
         <h2 class="text-center mt-2 mb-4">Open Position</h2>
         <div>
             {% for job in jobs %}
@@ -30,9 +38,10 @@
             {% endfor%}
         </div>
         <div class="text-center">
-            <button class="btn btn-primary btn-lg">Contact us</button>
-            <p class="mt-4">Copyright 2023</p>
+            <a href="mailto:chutiendat1609@gmail.com?subject=Question%20about%20job%20opening&body=My%20name%3A%20%3C
+            your%20name%20here%3E%0D%0AMy%20question%3A%20%3Center%20question%20here%3E" class="btn btn-primary btn-lg">Contact us</a>
         </div>
     </div>
+    {% include 'footer.html' %}
 </body>
 </html>
