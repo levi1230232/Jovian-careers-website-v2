@@ -28,4 +28,22 @@ def load_jobs_from_db():
     return jobs
 
 
-
+def load_job_from_db(job_id):
+    with engine.connect() as conn:
+        query = text("SELECT * FROM jobs WHERE id = :job_id")
+        result = conn.execute(query, {"job_id": job_id})
+        # row = result.all()
+        job = result.fetchone()
+        if job:
+            job_dict = {
+                'id': job[0],  # First column (index 0)
+                'title': job[1],  # Second column (index 1)
+                'location': job[2],  # Third column (index 2)
+                'salary': job[3],  # Fourth column (index 3)
+                'currency': job[4],  # Fifth column (index 4)
+                'responsibilities': job[5],  # Sixth column (index 5)
+                'requirement': job[6]  # Seventh column (index 6)
+            }
+            return job_dict
+        else:
+            return None
